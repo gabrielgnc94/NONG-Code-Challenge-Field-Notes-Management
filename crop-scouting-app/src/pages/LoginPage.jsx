@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Checkbox,
   Container,
@@ -18,11 +19,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    height: "80vh",
+    height: "100vh",
     flexDirection: "column",
   },
   textFields: {
     marginBottom: theme.spacing(2),
+  },
+  loginBox: {
+    boxShadow: `0 5px 10px -2px ${theme.palette.secondary.light}`,
+    padding: "2em 1em",
+    borderRadius: "0.5em",
+    backgroundColor: theme.palette.background.paper,
   },
 }));
 
@@ -30,37 +37,39 @@ const LoginPage = () => {
   const classes = useStyles();
   return (
     <Container component="main" maxWidth="xs" className={classes.container}>
-      <Typography component="h1" variant="h5">
-        Login
-      </Typography>
-      <form className={classes.form}>
-        <TextField
-          name="user"
-          autoComplete="user"
-          label="Usuario"
-          autoFocus
-          fullWidth
-          id="user"
-          className={classes.textFields}
-        />
-        <TextField
-          name="password"
-          type="password"
-          autoComplete="current-password"
-          label="Senha"
-          fullWidth
-          id="password"
-          className={classes.textFields}
-        />
-        <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Lembrar"
-        />
+      <Box component="div" className={classes.loginBox}>
+        <Typography component="h1" variant="h5">
+          Login
+        </Typography>
+        <form className={classes.form}>
+          <TextField
+            name="user"
+            autoComplete="user"
+            label="Usuario"
+            autoFocus
+            fullWidth
+            id="user"
+            className={classes.textFields}
+          />
+          <TextField
+            name="password"
+            type="password"
+            autoComplete="current-password"
+            label="Senha"
+            fullWidth
+            id="password"
+            className={classes.textFields}
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="secondary" />}
+            label="Lembrar"
+          />
 
-        <Button type="submit" fullWidth variant="contained" color="primary">
-          Entrar
-        </Button>
-      </form>
+          <Button type="submit" fullWidth variant="contained" color="secondary">
+            Entrar
+          </Button>
+        </form>
+      </Box>
     </Container>
   );
 };
