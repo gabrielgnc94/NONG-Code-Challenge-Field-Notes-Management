@@ -17,7 +17,7 @@ const App = () => {
     <React.Fragment>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Container className={classes.baseContainer}>
+        <Container className={classes.baseContainer} maxWidth="xl">
           <Routes />
         </Container>
       </ThemeProvider>
